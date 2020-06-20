@@ -7,14 +7,14 @@ public class TextStatement extends Statement {
 
     String eachRentalString (Rental aRental) {
         return "\t" + aRental.getMovie().getTitle()+ "\t" +
-                String.valueOf(aRental.getCharge()) + "\n";
+                aRental.getCharge() + "\n";
     }
 
     String footerString (Customer aCustomer) {
         return "Amount owed is " +
-                String.valueOf(aCustomer.getTotalCharge()) + "\n" +
+                aCustomer.getTotalCharge() + "\n" +
                 "You earned " +
-                String.valueOf(aCustomer.getTotalFrequentRenterPoints()) +
+                aCustomer.getTotalFrequentRenterPoints() +
                 " frequent renter points";
     }
 }

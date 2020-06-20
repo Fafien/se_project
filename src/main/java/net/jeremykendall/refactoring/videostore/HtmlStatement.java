@@ -6,14 +6,15 @@ public class HtmlStatement extends Statement{
     }
 
     String eachRentalString(Rental aRental) {
-        return aRental.getMovie().getTitle()+ ": " + String.valueOf(aRental.getCharge()) + "<BR>\n";
+        return aRental.getMovie().getTitle()+ ": " +
+                aRental.getCharge() + "<BR>\n";
     }
 
     String footerString (Customer aCustomer) {
         return "<P>You owe <EM>" +
-                String.valueOf(aCustomer.getTotalCharge()) +
+                aCustomer.getTotalCharge() +
                 "</EM><P> " + "On this rental you earned <EM>" +
-        String.valueOf(aCustomer.getTotalFrequentRenterPoints()) +
+                aCustomer.getTotalFrequentRenterPoints() +
                 "</EM> frequent renter points<P>";
     }
    }
