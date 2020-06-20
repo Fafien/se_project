@@ -18,11 +18,15 @@ public class CustomerTest {
     public void statementRentRegularMovieForOneDay() throws Exception {
         customer.addRental(getRental("Killer Klowns from Outer Space", Movie.REGULAR, 1));
 
-        String expected = "Rental Record for Arthur Dent\n" +
+        String text_expected = "Rental Record for Arthur Dent\n" +
                 "\tKiller Klowns from Outer Space\t2.0\n" +
                 "Amount owed is 2.0\n"+
                 "You earned 1 frequent renter points";
-        assertEquals(expected, customer.statement());
+        String html_expected = "Rental Record for Arthur Dent\n" +
+                "Killer Klowns from Outer Space: 2.0<BR>\n" +
+                "<P>You owe <EM>2.0</EM><P> On this rental you earned <EM>1</EM> frequent renter points<P>";
+        assertEquals(text_expected, customer.statement());
+        assertEquals(html_expected, customer.htmlStatement());
     }
 
     @Test
@@ -33,7 +37,11 @@ public class CustomerTest {
                 "\tAwesome New Release\t3.0\n" +
                 "Amount owed is 3.0\n"+
                 "You earned 1 frequent renter points";
+        String html_expected = "Rental Record for Arthur Dent\n" +
+                "Awesome New Release: 3.0<BR>\n" +
+                "<P>You owe <EM>3.0</EM><P> On this rental you earned <EM>1</EM> frequent renter points<P>";
         assertEquals(expected, customer.statement());
+        assertEquals(html_expected, customer.htmlStatement());
     }
 
     @Test
@@ -44,7 +52,11 @@ public class CustomerTest {
                 "\tCars\t1.5\n" +
                 "Amount owed is 1.5\n"+
                 "You earned 1 frequent renter points";
+        String html_expected = "Rental Record for Arthur Dent\n" +
+                "Cars: 1.5<BR>\n" +
+                "<P>You owe <EM>1.5</EM><P> On this rental you earned <EM>1</EM> frequent renter points<P>";
         assertEquals(expected, customer.statement());
+        assertEquals(html_expected, customer.htmlStatement());
     }
 
     @Test
