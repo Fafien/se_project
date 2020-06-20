@@ -1,7 +1,5 @@
 package net.jeremykendall.refactoring.videostore;
 
-import java.util.Enumeration;
-
 public class Rental {
     private Movie _movie;
     private int _daysRented;

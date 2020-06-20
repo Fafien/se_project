@@ -67,7 +67,11 @@ public class CustomerTest {
                 "\tCars\t3.0\n" +
                 "Amount owed is 3.0\n"+
                 "You earned 1 frequent renter points";
+        String html_expected = "Rental Record for Arthur Dent\n" +
+                "Cars: 3.0<BR>\n" +
+                "<P>You owe <EM>3.0</EM><P> On this rental you earned <EM>1</EM> frequent renter points<P>";
         assertEquals(expected, customer.statement());
+        assertEquals(html_expected, customer.htmlStatement());
     }
 
     @Test
@@ -78,7 +82,11 @@ public class CustomerTest {
                 "\tKiller Klowns from Outer Space\t3.5\n" +
                 "Amount owed is 3.5\n"+
                 "You earned 1 frequent renter points";
+        String html_expected = "Rental Record for Arthur Dent\n" +
+                "Killer Klowns from Outer Space: 3.5<BR>\n" +
+                "<P>You owe <EM>3.5</EM><P> On this rental you earned <EM>1</EM> frequent renter points<P>";
         assertEquals(expected, customer.statement());
+        assertEquals(html_expected, customer.htmlStatement());
     }
 
     @Test
@@ -89,7 +97,11 @@ public class CustomerTest {
                 "\tAwesome New Release\t6.0\n" +
                 "Amount owed is 6.0\n"+
                 "You earned 2 frequent renter points";
+        String html_expected = "Rental Record for Arthur Dent\n" +
+                "Awesome New Release: 6.0<BR>\n" +
+                "<P>You owe <EM>6.0</EM><P> On this rental you earned <EM>2</EM> frequent renter points<P>";
         assertEquals(expected, customer.statement());
+        assertEquals(html_expected, customer.htmlStatement());
     }
 
     @Test
@@ -105,7 +117,13 @@ public class CustomerTest {
                 "\tCars\t3.0\n" +
                 "Amount owed is 20.0\n"+
                 "You earned 4 frequent renter points";
+        String html_expected = "Rental Record for Arthur Dent\n" +
+                "Killer Klowns from Outer Space: 5.0<BR>\n" +
+                "Awesome New Release: 12.0<BR>\n" +
+                "Cars: 3.0<BR>\n" +
+                "<P>You owe <EM>20.0</EM><P> On this rental you earned <EM>4</EM> frequent renter points<P>";
         assertEquals(expected, customer.statement());
+        assertEquals(html_expected, customer.htmlStatement());
     }
 
     private Rental getRental(String title, int priceCode, int daysRented) {

@@ -1,7 +1,5 @@
 package net.jeremykendall.refactoring.videostore;
 
-import java.util.Enumeration;
-
 public class HtmlStatement extends Statement{
     String headerString(Customer aCustomer) {
         return "Rental Record for " + aCustomer.getName() + "\n";
